@@ -15,10 +15,10 @@
         "source": "https://github.com/jasny/immutable"
     },
     "require": {
-        "php": ">=7.1.0"
+        "php": ">=7.2.0"
     },
     "require-dev": {
-        "jasny/php-code-quality": "^2.3"
+        "jasny/php-code-quality": "^2.4"
     },
     "autoload": {
         "psr-4": {
