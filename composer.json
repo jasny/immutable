@@ -1,6 +1,6 @@
 {
     "name": "jasny/immutable",
-    "description": "",
+    "description": "Helper method for immutable objects",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -32,12 +32,9 @@
     },
     "scripts": {
         "test": [
-            "phpunit",
             "phpstan analyse",
+            "phpunit",
             "phpcs -p src"
-        ],
-        "post-create-project-cmd": [
-            "bash init.sh && rm init.sh"
         ]
     },
     "config": {
