@@ -1,6 +1,6 @@
 {
     "name": "jasny/immutable",
-    "description": "Helper method for immutable objects",
+    "description": "Helper methods for immutable objects",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -18,7 +18,7 @@
         "php": ">=7.2.0"
     },
     "require-dev": {
-        "jasny/php-code-quality": "^2.4"
+        "jasny/php-code-quality": "^2.5"
     },
     "autoload": {
         "psr-4": {
@@ -33,7 +33,7 @@
     "scripts": {
         "test": [
             "phpstan analyse",
-            "phpunit",
+            "phpunit --testdox --colors=always",
             "phpcs -p src"
         ]
     },

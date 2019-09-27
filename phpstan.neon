@@ -1,6 +1,10 @@
 parameters:
-    level: 4
+    level: 7
     paths:
         - src
+    reportUnmatchedIgnoredErrors: false
+    ignoreErrors:
+        - /^Variable property access/
+
 includes:
   	- vendor/phpstan/phpstan-strict-rules/rules.neon
