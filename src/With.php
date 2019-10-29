@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Jasny\Immutable;
 
@@ -26,7 +28,10 @@ trait With
             throw new \BadMethodCallException(sprintf('%s has no property "%s"', get_class($this), $property));
         }
 
-        if ($this->{$property} === $value) {
+        if (
+            (isset($this->{$property}) && $this->{$property} === $value) || // Typed property may be not initialized
+            (!isset($this->{$property}) && $value === null)        
+        ) {
             return $this;
         }
 
