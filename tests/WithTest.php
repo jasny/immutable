@@ -185,13 +185,13 @@ class WithTest extends TestCase
     public function testWithPropertyKeyOnNonExisting()
     {
         $this->expectException(\BadMethodCallException::class);
-        $this->object->withoutBarKey('abc');
+        $this->object->withBarKey('abc', 42);
     }
 
     public function testWithPropertyItemOnNonExisting()
     {
         $this->expectException(\BadMethodCallException::class);
-        $this->object->withoutBarItem(1);
+        $this->object->withBarItem(1);
     }
 
 
@@ -225,5 +225,17 @@ class WithTest extends TestCase
 
         $this->object->items = null;
         $this->object->withRemovedItem(1);
+    }
+
+    public function testWithoutPropertyKeyOnNonExisting()
+    {
+        $this->expectException(\BadMethodCallException::class);
+        $this->object->withoutBarKey('abc');
+    }
+
+    public function testWithoutPropertyItemOnNonExisting()
+    {
+        $this->expectException(\BadMethodCallException::class);
+        $this->object->withoutBarItem(1);
     }
 }

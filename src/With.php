@@ -2,8 +2,6 @@
 
 namespace Jasny\Immutable;
 
-use ArrayAccess;
-
 /**
  * Trait with the `withProperty` methods that can be used by classes of immutable objects.
  *
@@ -20,7 +18,7 @@ trait With
      * @return static
      * @throws \BadMethodCallException if property doesn't exist
      */
-    protected function withProperty(string $property, $value)
+    private function withProperty(string $property, $value)
     {
         if (!property_exists($this, $property)) {
             throw new \BadMethodCallException(sprintf('%s has no property "%s"', get_class($this), $property));
@@ -44,7 +42,7 @@ trait With
      * @return static
      * @throws \BadMethodCallException if property doesn't exist
      */
-    protected function withoutProperty(string $property)
+    private function withoutProperty(string $property)
     {
         if (!property_exists($this, $property)) {
             throw new \BadMethodCallException(sprintf('%s has no property "%s"', get_class($this), $property));
@@ -71,12 +69,12 @@ trait With
      * @return static
      * @throws \BadMethodCallException if property doesn't exist
      */
-    protected function withPropertyKey(string $property, string $key, $value)
+    private function withPropertyKey(string $property, string $key, $value)
     {
         if (!property_exists($this, $property)) {
             throw new \BadMethodCallException(sprintf('%s has no property "%s"', get_class($this), $property));
         } // @codeCoverageIgnore
-        if (!is_array($this->{$property}) && !$this->{$property} instanceof ArrayAccess) {
+        if (!is_array($this->{$property}) && !$this->{$property} instanceof \ArrayAccess) {
             throw new \BadMethodCallException(sprintf('%s::$%s is not an array', get_class($this), $property));
         }
 
@@ -99,12 +97,12 @@ trait With
      * @return static
      * @throws \BadMethodCallException if property doesn't exist or isn't an array
      */
-    protected function withoutPropertyKey(string $property, string $key)
+    private function withoutPropertyKey(string $property, string $key)
     {
         if (!property_exists($this, $property)) {
             throw new \BadMethodCallException(sprintf('%s has no property "%s"', get_class($this), $property));
         } // @codeCoverageIgnore
-        if (!is_array($this->{$property}) && !$this->{$property} instanceof ArrayAccess) {
+        if (!is_array($this->{$property}) && !$this->{$property} instanceof \ArrayAccess) {
             throw new \BadMethodCallException(sprintf('%s::$%s is not an array', get_class($this), $property));
         }
 
@@ -128,11 +126,11 @@ trait With
      * @return static
      * @throws \BadMethodCallException if property doesn't exist or isn't an array
      */
-    protected function withPropertyItem(string $property, $value, bool $unique = false)
+    private function withPropertyItem(string $property, $value, bool $unique = false)
     {
         if (!property_exists($this, $property)) {
             throw new \BadMethodCallException(sprintf('%s has no property "%s"', get_class($this), $property));
-        } // @codeCoverageIgnore
+        }
         if (!is_array($this->{$property})) {
             throw new \BadMethodCallException(sprintf('%s::$%s is not an array', get_class($this), $property));
         }
@@ -156,7 +154,7 @@ trait With
      * @return static
      * @throws \BadMethodCallException if property doesn't exist or isn't an array
      */
-    protected function withoutPropertyItem(string $property, $value)
+    private function withoutPropertyItem(string $property, $value)
     {
         if (!property_exists($this, $property)) {
             throw new \BadMethodCallException(sprintf('%s has no property "%s"', get_class($this), $property));
