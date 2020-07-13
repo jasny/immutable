@@ -112,8 +112,7 @@ class ImmutableFoo
 }
 ```
 
-If the third argument of `withPropertyItem()` is to `true`, the array is considered to be a set and the item isn't added
-if it's already in the array.
+If the third argument of `withPropertyItem()` is set to `true`, the item isn't added if it's already in the array.
 
 If the item is in the array multiple times, `withoutPropertyItem()` will remove them all. Strict comparison is used to
 find items.
