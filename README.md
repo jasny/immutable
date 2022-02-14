@@ -60,6 +60,8 @@ unsetting properties on a clone of the object.
 class ImmutableFoo
 {
     use Jasny\Immutable\With;
+    
+    protected $something;
 
     public function withSomething(string $value): self
     {
@@ -81,6 +83,8 @@ class ImmutableFoo
 {
     use Jasny\Immutable\With;
 
+    protected array $colors = [];
+
     public function withColor(string $color, int $level): self
     {
         return $this->withPropertyKey('colors', $color, $level);
@@ -99,6 +103,8 @@ The `withPropertyItem()` and `withoutPropertyItem()` methods work on a sequentia
 class ImmutableFoo
 {
     use Jasny\Immutable\With;
+
+    protected array $services = [];
 
     public function withAddedService($service): self
     {
